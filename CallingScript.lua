@@ -15,5 +15,12 @@ game:GetService("RunService").Heartbeat:Connect(function(dt)
 end)
 
 game:GetService("RunService").RenderStepped:Connect(function()
-	playerDebug:onRenderStepped()
+	--playerDebug:onRenderStepped()
+	
+	print(playerDebug:stats()) -- Will print a table
+	
+	print(playerDebug:stats().fps) -- Prints FPS
+	print(playerDebug:stats().speed) -- Prints Player Speed
+	print(playerDebug:stats().top) -- Prints Players Top Speed
+	
 end)
