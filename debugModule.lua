@@ -31,8 +31,18 @@ end
 
 function playerDebug:onRenderStepped()
 	print("FPS: " .. self.fps)
-	print("Speed: " .. math.floor(self.player.Velocity.Magnitude * 100) / 100 .. " (ups)")
-	print("Top: " .. math.floor(self.topSpeed * 100) / 100 .. " (ups)")
+	print("Speed: " .. math.floor(self.player.Velocity.Magnitude * 100) / 100 .." (ups)")
+	print("Top: " .. math.floor(self.topSpeed * 100) / 100 .." (ups)")
+end
+
+function playerDebug:stats()
+	local dict = {
+		fps = self.fps,
+		speed = math.floor(self.player.Velocity.Magnitude * 100) / 100 .." (ups)",
+		top = math.floor(self.topSpeed * 100) / 100 .." (ups)"
+	}
+	
+	return dict
 end
 
 return playerDebug
