@@ -11,16 +11,11 @@ assert(character:FindFirstChild("HumanoidRootPart"), "Character does not have a 
 local playerDebug = playerDebugModule.new(character.HumanoidRootPart)
 
 game:GetService("RunService").Heartbeat:Connect(function(dt)
-	playerDebug:update(dt)
-end)
+  playerDebug:update(dt)
 
-game:GetService("RunService").RenderStepped:Connect(function()
-	--playerDebug:onRenderStepped()
-	
-	print(playerDebug:stats()) -- Will print a table
-	
-	print(playerDebug:stats().fps) -- Prints FPS
-	print(playerDebug:stats().speed) -- Prints Player Speed
-	print(playerDebug:stats().top) -- Prints Players Top Speed
-	
+  local statsTable = playerDebug:stats()
+
+  frame.fps.Text = "FPS: " ..statsTable.fps
+  frame.speed.Text = "SPEED: " ..statsTable.speed
+  frame.topSpeed.Text = "TOP: " ..statsTable.top
 end)
